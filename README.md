@@ -18,3 +18,5 @@ this is my personal project whose functionality is almost similar to
 $ npm install
 $ npm start
 ```
+
+This project inspired by <a href="https://www.youtube.com/watch?v=KB7JEnfc7Dc&t=9248s" target="_blank">Youtube</a>
