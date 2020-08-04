@@ -1,0 +1,38 @@
+.message {
+    padding: 5px 3vw;
+    margin: 10px;
+    width: fit-content;
+    text-align: left !important;
+}
+
+.message>h5 {
+    margin: 0 0 5px 8px;
+    text-align: left;
+    color: rgb(0, 0, 0) !important;
+}
+
+.MuiCardContent-root {
+    padding: 10px !important;
+    border-radius: 20px !important;
+}
+
+.MuiPaper-rounded {
+    border-radius: 10px !important;
+}
+
+.message__user {
+    margin-left: auto;
+    text-align: right !important;
+}
+
+.message__userCard {
+    background-color: #3b7fe6 !important;
+    color: rgb(255, 255, 255) !important;
+    /* margin: auto auto !important; */
+    border-radius: 10px;
+}
+
+.message__guestCard {
+    background-color: #88f1ff !important;
+    color: rgb(0, 0, 0) !important;
+}
