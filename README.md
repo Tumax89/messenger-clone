@@ -19,4 +19,4 @@ $ npm install
 $ npm start
 ```
 
-This project inspired by <a href="https://www.youtube.com/watch?v=KB7JEnfc7Dc&t=9248s" target="_blank">Youtube</a>
+This project was inspired by <a href="https://www.youtube.com/watch?v=KB7JEnfc7Dc&t=9248s" target="_blank">Youtube</a>
