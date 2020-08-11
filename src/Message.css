@@ -1,6 +1,5 @@
 .message {
-    padding: 5px 3vw;
-    margin: 10px;
+    margin: 25px 0;
     width: fit-content;
     text-align: left !important;
 }
@@ -22,13 +21,11 @@
 
 .message__user {
     margin-left: auto;
-    text-align: right !important;
 }
 
 .message__userCard {
     background-color: #3b7fe6 !important;
     color: rgb(255, 255, 255) !important;
-    /* margin: auto auto !important; */
     border-radius: 10px;
 }
 
