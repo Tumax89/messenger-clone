@@ -3,14 +3,14 @@ import firebase from 'firebase';
 
 const firebaseApp = firebase.initializeApp({
 
-    apiKey: "AIzaSyCC-zCwBcvCxldV7a4zB5vGyg6zWMGOhWg",
+    apiKey: API_KEY,
     authDomain: "messenger-app-73ccd.firebaseapp.com",
-    databaseURL: "https://messenger-app-73ccd.firebaseio.com",
+    databaseURL: DB_URL,
     projectId: "messenger-app-73ccd",
     storageBucket: "messenger-app-73ccd.appspot.com",
     messagingSenderId: "132091890762",
-    appId: "1:132091890762:web:9fba75df8ac5ef5dd5aab3",
-    measurementId: "G-4MB497LHT2"
+    appId: API_ID,
+    measurementId: MEASUREMENT
 });
 
 const db = firebaseApp.firestore();
