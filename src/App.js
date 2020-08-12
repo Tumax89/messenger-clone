@@ -56,20 +56,18 @@ function App() {
         </svg>
       <h3>Welcome {username||'Stranger'} 👋</h3>
 
-      <div className='chat_wrapper'>
-        <FlipMove id='chat_wrap'>
-          {message.map(({id, message}) => {
-            return (
-              <Message 
-                key={id}
-                id={id}
-                username={username} 
-                message={message}
-              />
-              )
-          })}
-        </FlipMove>
-      </div>
+      
+      <FlipMove className='chat_wrapper' id='chat_wrap'>
+        {message.map(({id, message}) => 
+            <Message 
+              key={id}
+              id={id}
+              username={username || 'Stranger'} 
+              message={message}
+            />
+        )}
+      </FlipMove>
+      
           
       <form className='app__form' onSubmit={onSubmit}>
         <FormControl className='app__formControl'>
@@ -77,7 +75,7 @@ function App() {
             autoComplete='off'
             className='app__input'
             id="outlined-basic" 
-            label={`Enter a Message as ${username || 'Stranger'}`}
+            label={`Chating as ${username || 'Stranger'}`}
             variant="outlined"
             size="small"  
             value={input} 

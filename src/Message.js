@@ -8,8 +8,7 @@ const Message = forwardRef(({message, username, id}, ref) => {
     const isUser = username === message.username;
 
     function deleteChat(e) {
-        const chat = e.target.id
-        db.collection('messengers').doc(`${chat}`).delete()
+        db.collection('messengers').doc(`${e.target.id}`).delete()
     }
     
     return (
@@ -20,9 +19,9 @@ const Message = forwardRef(({message, username, id}, ref) => {
                 <CardContent >
                     <Typography
                         id={id} 
-                        onClick={ isUser && deleteChat}
-                        color='white'
-                        variant='p'
+                        onClick={ isUser ? deleteChat : undefined}
+                        color='initial'
+                        variant='inherit'
                         component='p'
                     >
                        {message.message}
