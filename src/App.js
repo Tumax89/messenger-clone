@@ -14,29 +14,33 @@ function App() {
   const [message, setMess] =  useState([]);
 
   // Database update automatically
+
   useEffect(() => {
-    db.collection('messengers').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+    db.collection('messengers').orderBy('timestamp').onSnapshot(snapshot => {
       setMess(snapshot.docs.map(doc => ({id: doc.id, message: doc.data()})))
-    });
+    })
+    setUser(prompt('Please enter your name'));
   }, []);
 
-  // prompt input username
   useEffect(() => {
-    setUser(prompt('Please enter your name'));
-  }, [])
-
+    const heightWrapper = document.getElementById('chat_wrap').offsetHeight
+    window.scrollTo(0, heightWrapper)
+  }, [message])
+  
+  
 
   // onClick send button
   function onSubmit(e) {
     e.preventDefault();
     db.collection('messengers').add({
       message: input,
-      username: username,
+      username: (username||'Stranger'),
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
-    setMess([...message, {username: username, message: input}]); 
     setInput('');
   }
+
+  
 
   return (
     <div className="App">
@@ -44,23 +48,24 @@ function App() {
         <svg width= '100px' height= '100px' xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
           <title>React Logo</title>
           <circle cx="0" cy="0" r="2.35" fill="#ffdb7d"/>
-          <g className='react_logo'  stroke-width="1" fill="none">
+          <g className='react_logo'  strokeWidth="1" fill="none">
             <ellipse rx="11" ry="4.2" stroke="#F8CA51"/>
             <ellipse rx="11" ry="4.2" stroke='#E88634' transform="rotate(60)"/>
             <ellipse rx="11" ry="4.2" stroke='#F4A83E' transform="rotate(120)"/>
           </g>
         </svg>
-      <h1>Hello Clever Programmers 🚀</h1>
       <h3>Welcome {username||'Stranger'} 👋</h3>
 
       <div className='chat_wrapper'>
-        <FlipMove>
+        <FlipMove id='chat_wrap'>
           {message.map(({id, message}) => {
             return (
               <Message 
-              key={id}
-              username={username} 
-              message={message}/>
+                key={id}
+                id={id}
+                username={username} 
+                message={message}
+              />
               )
           })}
         </FlipMove>
@@ -72,7 +77,7 @@ function App() {
             autoComplete='off'
             className='app__input'
             id="outlined-basic" 
-            label="Enter a Message.." 
+            label={`Enter a Message as ${username || 'Stranger'}`}
             variant="outlined"
             size="small"  
             value={input} 

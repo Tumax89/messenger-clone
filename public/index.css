@@ -24,10 +24,9 @@ code {
 .app__form {
   padding: 10px;
   position: sticky;
-  bottom: 3px;
-  background-color: rgb(255, 255, 255);
+  bottom: 0;
   width: 94vw;
-  margin: 0;
+  margin: 0 auto;
   background: linear-gradient(to right, #36d1dc, #5b86e5);
 }
 

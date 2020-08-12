@@ -19,4 +19,9 @@ $ npm install
 $ npm start
 ```
 
+### Delete Chat
+
+- just clicking over the text, the chat will be gone
+- this feature only work if you deleting your own chat
+
 This project was inspired by <a href="https://www.youtube.com/watch?v=KB7JEnfc7Dc&t=9248s" target="_blank">Youtube</a>
