@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Message from './Message';
+import Message from './Message/Message';
 import {TextField, FormControl, IconButton} from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import db from './firebase';
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
+import appStyle from './App.module.css'
 
 
 function App() {
@@ -43,12 +44,12 @@ function App() {
   
 
   return (
-    <div className="App">
+    <div className={appStyle.App}>
     
         <svg width= '100px' height= '100px' xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
           <title>React Logo</title>
           <circle cx="0" cy="0" r="2.35" fill="#ffdb7d"/>
-          <g className='react_logo'  strokeWidth="1" fill="none">
+          <g className={appStyle.react_logo}  strokeWidth="1" fill="none">
             <ellipse rx="11" ry="4.2" stroke="#F8CA51"/>
             <ellipse rx="11" ry="4.2" stroke='#E88634' transform="rotate(60)"/>
             <ellipse rx="11" ry="4.2" stroke='#F4A83E' transform="rotate(120)"/>
@@ -57,7 +58,7 @@ function App() {
       <h3>Welcome {username||'Stranger'} 👋</h3>
 
       
-      <FlipMove className='chat_wrapper' id='chat_wrap'>
+      <FlipMove className={appStyle.chat_wrapper} id='chat_wrap'>
         {message.map(({id, message}) => 
             <Message 
               key={id}
@@ -69,11 +70,11 @@ function App() {
       </FlipMove>
       
           
-      <form className='app__form' onSubmit={onSubmit}>
-        <FormControl className='app__formControl'>
+      <form className={appStyle.app__form} onSubmit={onSubmit}>
+        <FormControl className={appStyle.app__formControl}>
           <TextField 
             autoComplete='off'
-            className='app__input'
+            className={appStyle.app__input}
             id="outlined-basic" 
             label={`Chating as ${username || 'Stranger'}`}
             variant="outlined"
@@ -82,7 +83,7 @@ function App() {
             onChange={e => {setInput(e.target.value)}} 
           />
           <IconButton 
-            className='app__iconButton'
+            className={appStyle.app__iconButton}
             onClick={onSubmit}
             disabled={!input}
             variant="contained"
