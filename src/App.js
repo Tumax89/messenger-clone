@@ -69,33 +69,37 @@ function App() {
         )}
       </FlipMove>
       
-          
-      <form className={appStyle.app__form} onSubmit={onSubmit}>
-        <FormControl className={appStyle.app__formControl}>
-          <TextField 
-            autoComplete='off'
-            className={appStyle.app__input}
-            id="outlined-basic" 
-            label={`Chating as ${username || 'Stranger'}`}
-            variant="outlined"
-            size="small"  
-            value={input} 
-            onChange={e => {setInput(e.target.value)}} 
-          />
-          <IconButton 
-            className={appStyle.app__iconButton}
-            onClick={onSubmit}
-            disabled={!input}
-            variant="contained"
-            color="primary"
-            size="medium"
-            >
-                <Icon>send</Icon>
-            </IconButton>
-            
-        </FormControl>
-      </form>
-      
+      {
+        message.length > 0 
+          ?(
+            <form className={appStyle.app__form} onSubmit={onSubmit}>
+            <FormControl className={appStyle.app__formControl}>
+              <TextField 
+                autoComplete='off'
+                className={appStyle.app__input}
+                id="outlined-basic" 
+                label={`Chating as ${username || 'Stranger'}`}
+                variant="outlined"
+                size="small"  
+                value={input} 
+                onChange={e => {setInput(e.target.value)}} 
+              />
+              <IconButton 
+                className={appStyle.app__iconButton}
+                onClick={onSubmit}
+                disabled={!input}
+                variant="contained"
+                color="primary"
+                size="medium"
+                >
+                    <Icon>send</Icon>
+                </IconButton>
+                  
+            </FormControl>
+            </form>
+           )
+        : <h1>Loading Chat...</h1>
+      }
     </div>
   );
 }
